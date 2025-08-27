@@ -1,0 +1,56 @@
+{
+    "type": "spacemod:space",
+    "generator": {
+        "type": "noise",
+        "settings": {
+            "sea_level": 0,
+            "disable_mob_generation": true,
+            "ore_veins_enabled": false,
+            "aquifers_enabled": false,
+            "legacy_random_source": false,
+            "default_block": {
+                "Name": "minecraft:stone"
+            },
+            "default_fluid": {
+                "Name": "minecraft:water",
+                "Properties": {
+                    "level": "0"
+                }
+            },
+            "spawn_target": [],
+            "noise": {
+                "min_y": 0,
+                "height": 256,
+                "size_horizontal": 1,
+                "size_vertical": 1
+            },
+            "noise_router": {
+                "initial_density_without_jaggedness": 0,
+                "final_density": 0,
+                "barrier": 0,
+                "fluid_level_floodedness": 0,
+                "fluid_level_spread": 0,
+                "lava": 0,
+                "vein_toggle": 0,
+                "vein_ridged": 0,
+                "vein_gap": 0,
+                "temperature": 0,
+                "vegetation": 0,
+                "continents": 0,
+                "erosion": 0,
+                "depth": 0,
+                "ridges": 0
+            },
+            "surface_rule": {
+                "type": "block",
+                "result_state": {
+                    "Name": "minecraft:stone"
+                }
+            }
+        },
+        "biome_source": {
+            "type": "fixed",
+            "biome": "spacemod:space"
+        }
+    }
+}
