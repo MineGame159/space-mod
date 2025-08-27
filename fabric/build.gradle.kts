@@ -41,7 +41,7 @@ dependencies {
     modImplementation("dev.architectury:architectury-fabric:$architectury_api_version")
 
     commonBundle(project(":common", "namedElements")) { isTransitive = false }
-    shadowBundle(project(":common", "transformProductionForge")) { isTransitive = false }
+    shadowBundle(project(":common", "transformProductionFabric")) { isTransitive = false }
 }
 
 tasks.processResources {
