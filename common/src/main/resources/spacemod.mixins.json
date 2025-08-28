@@ -1,13 +1,15 @@
 {
-  "required": true,
-  "package": "minegame159.mixin",
-  "compatibilityLevel": "JAVA_21",
-  "minVersion": "0.8",
-  "client": [
-  ],
-  "mixins": [
-  ],
-  "injectors": {
-    "defaultRequire": 1
+    "required": true,
+    "package": "minegame159.spacemod.mixin",
+    "compatibilityLevel": "JAVA_21",
+    "minVersion": "0.8",
+    "client": [
+    ],
+    "mixins": [
+        "EntityMixin",
+        "LivingEntityMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
   }
 }

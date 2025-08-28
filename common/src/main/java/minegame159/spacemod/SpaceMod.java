@@ -7,6 +7,7 @@ public final class SpaceMod {
     public static final String ID = "spacemod";
 
     public static void init() {
+        ModFluids.init();
         ModBlocks.init();
         ModItems.init();
         Space.init();

@@ -1,5 +1,6 @@
 package minegame159.spacemod;
 
+import dev.architectury.core.item.ArchitecturyBucketItem;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -8,7 +9,9 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 
-public class ModItems {
+public final class ModItems {
+    private ModItems() {}
+
     public static void init() {
         TABS_REGISTRY.register();
         REGISTRY.register();
@@ -34,6 +37,11 @@ public class ModItems {
     public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(
         SpaceMod.ID,
         Registries.ITEM
+    );
+
+    public static final RegistrySupplier<Item> CRUDE_OIL_BUCKET = REGISTRY.register(
+        "crude_oil_bucket",
+        () -> new ArchitecturyBucketItem(ModFluids.CRUDE_OIL, new Item.Properties().arch$tab(TAB))
     );
 
     public static final RegistrySupplier<BlockItem> ROCKET_SILO = REGISTRY.register(

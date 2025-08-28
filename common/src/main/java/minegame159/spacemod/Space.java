@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public abstract class Space {
+public final class Space {
+    private Space() {}
+
     public static final ResourceKey<Level> KEY = ResourceKey.create(
         Registries.DIMENSION,
         ResourceLocation.fromNamespaceAndPath(SpaceMod.ID, "space")
