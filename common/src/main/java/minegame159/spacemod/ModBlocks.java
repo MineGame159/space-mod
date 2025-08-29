@@ -39,6 +39,20 @@ public final class ModBlocks {
         )
     );
 
+    public static final RegistrySupplier<LiquidBlock> ROCKET_FUEL = REGISTRY.register(
+        "rocket_fuel",
+        () -> new ArchitecturyLiquidBlock(ModFluids.ROCKET_FUEL_FLOWING, BlockBehaviour.Properties.of()
+            .mapColor(MapColor.COLOR_YELLOW)
+            .replaceable()
+            .noCollission()
+            .strength(100.0F)
+            .pushReaction(PushReaction.DESTROY)
+            .noLootTable()
+            .liquid()
+            .sound(SoundType.EMPTY)
+        )
+    );
+
     public static final RegistrySupplier<RocketSiloBlock> ROCKET_SILO = REGISTRY.register(
         "rocket_silo",
         () -> new RocketSiloBlock(BlockBehaviour.Properties.of())

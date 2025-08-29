@@ -1,7 +1,7 @@
-package minegame159.spacemod.mixin;
+package minegame159.spacemod.mixin.fluid;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import minegame159.spacemod.ModFluidTags;
+import minegame159.spacemod.ModFluids;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.material.Fluid;
@@ -22,13 +22,15 @@ public abstract class EntityMixin {
 
     @ModifyReturnValue(method = "updateInWaterStateAndDoFluidPushing", at = @At("RETURN"))
     private boolean spacemod$fluidPush(boolean pushedOriginal) {
-        var pushedByCrudeOil = this.updateFluidHeightAndDoFluidPushing(ModFluidTags.CRUDE_OIL, 0.01);
+        for (var info : ModFluids.INFOS) {
+            if (this.updateFluidHeightAndDoFluidPushing(info.tag(), info.motionScale())) {
+                this.wasTouchingWater = true;
+                this.resetFallDistance();
 
-        if (pushedByCrudeOil) {
-            this.wasTouchingWater = true;
-            this.resetFallDistance();
+                return true;
+            }
         }
 
-        return pushedOriginal | pushedByCrudeOil;
+        return pushedOriginal;
     }
 }

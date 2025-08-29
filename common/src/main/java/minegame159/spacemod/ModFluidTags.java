@@ -9,6 +9,7 @@ public final class ModFluidTags {
     private ModFluidTags() {}
 
     public static final TagKey<Fluid> CRUDE_OIL = create("crude_oil");
+    public static final TagKey<Fluid> ROCKET_FUEL = create("rocket_fuel");
 
     private static TagKey<Fluid> create(String name) {
         return TagKey.create(Registries.FLUID, ResourceLocation.fromNamespaceAndPath(SpaceMod.ID, name));

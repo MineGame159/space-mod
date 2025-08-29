@@ -6,8 +6,11 @@
     "client": [
     ],
     "mixins": [
-        "EntityMixin",
-        "LivingEntityMixin"
+        "fluid.BoatMixin",
+        "fluid.EntityMixin",
+        "fluid.ExperienceOrbMixin",
+        "fluid.ItemEntityMixin",
+        "fluid.LivingEntityMixin"
     ],
     "injectors": {
         "defaultRequire": 1

@@ -2,12 +2,16 @@
     "itemGroup.spacemod.tab": "Space Mod",
 
     "fluid.spacemod.crude_oil": "Crude Oil",
+    "fluid.spacemod.rocket_fuel": "Rocket Fuel",
 
     "block.spacemod.crude_oil": "Crude Oil",
+    "block.spacemod.rocket_fuel": "Rocket Fuel",
     "block.spacemod.rocket_silo": "Rocket Silo",
 
     "item.spacemod.crude_oil_bucket": "Crude Oil Bucket",
+    "item.spacemod.rocket_fuel_bucket": "Rocket Fuel Bucket",
     "item.spacemod.rocket_silo": "Rocket Silo",
 
-    "tag.fluid.spacemod.crude_oil": "Crude Oil"
+    "tag.fluid.spacemod.crude_oil": "Crude Oil",
+    "tag.fluid.spacemod.rocket_fuel": "Rocket Fuel"
 }
