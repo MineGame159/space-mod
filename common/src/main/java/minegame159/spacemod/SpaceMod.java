@@ -1,5 +1,7 @@
 package minegame159.spacemod;
 
+import minegame159.spacemod.worldgen.feature.ModFeatures;
+import minegame159.spacemod.worldgen.placement.ModPlacements;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 
@@ -10,6 +12,10 @@ public final class SpaceMod {
         ModFluids.init();
         ModBlocks.init();
         ModItems.init();
+
+        ModPlacements.init();
+        ModFeatures.init();
+
         Space.init();
     }
 

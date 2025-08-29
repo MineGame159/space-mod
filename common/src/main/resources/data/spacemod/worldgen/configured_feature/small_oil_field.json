@@ -1,0 +1,25 @@
+{
+    "type": "spacemod:oil_field",
+    "config": {
+        "spout_height": {
+            "type": "uniform",
+            "min_inclusive": 3,
+            "max_inclusive": 6
+        },
+        "spout_depth": {
+            "type": "uniform",
+            "min_inclusive": 5,
+            "max_inclusive": 10
+        },
+        "field_xz_radius": {
+            "type": "uniform",
+            "min_inclusive": 3,
+            "max_inclusive": 5
+        },
+        "field_y_radius": {
+            "type": "uniform",
+            "min_inclusive": 1,
+            "max_inclusive": 3
+        }
+    }
+}
