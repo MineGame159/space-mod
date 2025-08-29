@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": {
+            "model": "spacemod:block/rocket_fuel"
+        }
+    }
+}
