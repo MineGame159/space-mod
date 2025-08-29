@@ -18,4 +18,13 @@ public abstract class LivingEntityMixin {
 
         return original.call(entity, tag);
     }
+
+    @WrapOperation(method = "baseTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;isEyeInFluid(Lnet/minecraft/tags/TagKey;)Z"))
+    private boolean spacemod$fluidBreathing(LivingEntity instance, TagKey<Fluid> tag, Operation<Boolean> original) {
+        if (instance.isEyeInFluid(ModFluidTags.CRUDE_OIL)) {
+            return true;
+        }
+
+        return original.call(instance, tag);
+    }
 }
