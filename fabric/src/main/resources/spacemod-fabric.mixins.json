@@ -1,0 +1,14 @@
+{
+    "required": true,
+    "package": "minegame159.spacemod.fabric.mixin",
+    "compatibilityLevel": "JAVA_21",
+    "minVersion": "0.8",
+    "client": [
+    ],
+    "mixins": [
+        "FluidVariantImplMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

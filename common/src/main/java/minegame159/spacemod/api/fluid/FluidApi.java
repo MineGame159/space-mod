@@ -1,0 +1,20 @@
+package minegame159.spacemod.api.fluid;
+
+import dev.architectury.hooks.fluid.FluidStackHooks;
+import dev.architectury.injectables.annotations.ExpectPlatform;
+import minegame159.spacemod.api.ResourceBlockLookup;
+import net.minecraft.core.Direction;
+import org.jetbrains.annotations.Nullable;
+
+public final class FluidApi {
+    private FluidApi() {}
+
+    public static final int BUCKET_AMOUNT = (int) FluidStackHooks.bucketAmount();
+
+    public static final ResourceBlockLookup<FluidResource, @Nullable Direction> SIDED = createSided();
+
+    @ExpectPlatform
+    private static ResourceBlockLookup<FluidResource, @Nullable Direction> createSided() {
+        throw new AssertionError();
+    }
+}

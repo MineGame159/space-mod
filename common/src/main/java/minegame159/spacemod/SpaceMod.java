@@ -9,6 +9,8 @@ import net.minecraft.network.chat.MutableComponent;
 public final class SpaceMod {
     public static final String ID = "spacemod";
 
+    public static Logger LOGGER = LogUtils.getLogger();
+
     public static void init() {
         ModFluids.init();
         ModBlocks.init();

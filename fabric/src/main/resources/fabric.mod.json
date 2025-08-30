@@ -15,7 +15,8 @@
         ]
     },
     "mixins": [
-        "spacemod.mixins.json"
+        "spacemod.mixins.json",
+        "spacemod-fabric.mixins.json"
     ],
     "depends": {
         "fabricloader": ">=${fabric_loader_version}",
