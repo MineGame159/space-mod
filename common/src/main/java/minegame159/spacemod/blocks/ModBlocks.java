@@ -1,8 +1,10 @@
-package minegame159.spacemod;
+package minegame159.spacemod.blocks;
 
 import dev.architectury.core.block.ArchitecturyLiquidBlock;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
+import minegame159.spacemod.ModFluids;
+import minegame159.spacemod.SpaceMod;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LiquidBlock;

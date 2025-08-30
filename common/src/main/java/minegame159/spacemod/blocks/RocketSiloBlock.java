@@ -1,5 +1,6 @@
-package minegame159.spacemod;
+package minegame159.spacemod.blocks;
 
+import minegame159.spacemod.Space;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;

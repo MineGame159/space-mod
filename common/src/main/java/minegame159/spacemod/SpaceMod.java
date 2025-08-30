@@ -1,5 +1,6 @@
 package minegame159.spacemod;
 
+import minegame159.spacemod.blocks.ModBlocks;
 import minegame159.spacemod.worldgen.feature.ModFeatures;
 import minegame159.spacemod.worldgen.placement.ModPlacements;
 import net.minecraft.network.chat.Component;

@@ -1,6 +1,6 @@
 package minegame159.spacemod.worldgen.feature;
 
-import minegame159.spacemod.ModBlocks;
+import minegame159.spacemod.blocks.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
