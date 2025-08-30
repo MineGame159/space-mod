@@ -1,10 +1,13 @@
 package minegame159.spacemod.api.fluid.fabric;
 
-import minegame159.spacemod.api.ResourceBlockLookup;
-import minegame159.spacemod.api.ResourceView;
-import minegame159.spacemod.api.ResourceView2Storage;
+import com.google.common.collect.Iterators;
+import minegame159.spacemod.api.*;
 import minegame159.spacemod.api.fluid.FluidResource;
+import minegame159.spacemod.utils.SimpleResourceView;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
+import net.fabricmc.fabric.api.transfer.v1.storage.SlottedStorage;
+import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
@@ -36,10 +39,45 @@ public class FluidApiImpl implements ResourceBlockLookup<FluidResource, Directio
             return wrapper.resourceView;
         }
 
-        return null;
+        return wrap(storage);
     }
 
     public static ResourceBlockLookup<FluidResource, @Nullable Direction> createSided() {
         return new FluidApiImpl();
+    }
+
+    @SuppressWarnings("unchecked")
+    public static ResourceView<FluidResource> wrap(Storage<FluidVariant> storage) {
+        // Slotted storage
+        if (storage instanceof SlottedStorage<FluidVariant> slotted) {
+            if (slotted.getSlotCount() == 1) {
+                return new StorageView2ResourceViewOrSlot(slotted, slotted.getSlot(0));
+            }
+
+            var slots = new ResourceSlot[slotted.getSlotCount()];
+
+            for (int i = 0; i < slots.length; i++) {
+                slots[i] = new StorageView2ResourceViewOrSlot(slotted, slotted.getSlot(i));
+            }
+
+            return SimpleResourceView.with(slots);
+        }
+
+        // Generic fallback
+        var count = Iterators.size(storage.iterator());
+
+        if (count == 1) {
+            return new StorageView2ResourceViewOrSlot(storage);
+        }
+
+        var slots = new ResourceSlot[count];
+        var i = 0;
+
+        for (var view : storage) {
+            slots[i] = new StorageView2ResourceViewOrSlot(storage, view);
+            i++;
+        }
+
+        return SimpleResourceView.with(slots);
     }
 }

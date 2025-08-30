@@ -33,9 +33,13 @@ public final class ResourceUtils {
         return amount;
     }
 
-    public static <R> int transfer(ResourceSlot<R> src, ResourceSlot<R> dst, R resource, int maxAmount, ResourceInteraction interaction) {
+    public static <R> int transfer(ResourceSlot<R> src, ResourceSlot<R> dst, int maxAmount, ResourceInteraction interaction) {
         if (!src.canExtract(interaction)) return 0;
         if (!dst.canInsert(interaction)) return 0;
+
+        if (src.getAmount() == 0) return 0;
+
+        var resource = src.getResource();
 
         var canExtract = src.extract(resource, maxAmount, ResourceInteraction.Simulation);
         var inserted = dst.insert(resource, canExtract, interaction);

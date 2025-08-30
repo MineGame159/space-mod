@@ -25,7 +25,7 @@ public class SimpleFluidResourceSlot extends SimpleResourceSlot<FluidResource> {
     }
 
     @Override
-    protected FluidResource createEmpty() {
+    protected FluidResource getEmpty() {
         return FluidResource.empty();
     }
 

@@ -26,11 +26,11 @@ public abstract class SimpleResourceSlot<R> implements ResourceSlot<R> {
         this.insertFilter = insertFilter;
         this.onUpdate = onUpdate;
 
-        this.resource = createEmpty();
+        this.resource = getEmpty();
         this.amount = 0;
     }
 
-    protected abstract R createEmpty();
+    protected abstract R getEmpty();
 
     @Override
     public R getResource() {
@@ -120,7 +120,14 @@ public abstract class SimpleResourceSlot<R> implements ResourceSlot<R> {
             return 0;
         }
 
-        return extractImpl(resource, maxAmount, interaction != ResourceInteraction.Simulation);
+        var apply = interaction != ResourceInteraction.Simulation;
+        var amount = extractImpl(resource, maxAmount, apply);
+
+        if (apply && this.amount == 0) {
+            this.resource = getEmpty();
+        }
+
+        return amount;
     }
 
     public int extractSkipMask(R resource, int maxAmount) {

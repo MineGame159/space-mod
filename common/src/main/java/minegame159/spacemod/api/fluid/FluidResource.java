@@ -7,6 +7,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 
+import java.util.function.Supplier;
+
 public interface FluidResource {
     Codec<FluidResource> CODEC = FluidResourceHooks.getCodec();
 
@@ -28,7 +30,15 @@ public interface FluidResource {
         return FluidResourceHooks.of(fluid, DataComponentPatch.EMPTY);
     }
 
+    static FluidResource of(Supplier<Fluid> fluid) {
+        return FluidResourceHooks.of(fluid.get(), DataComponentPatch.EMPTY);
+    }
+
     static FluidResource of(Fluid fluid, DataComponentPatch components) {
         return FluidResourceHooks.of(fluid, components);
+    }
+
+    static FluidResource of(Supplier<Fluid> fluid, DataComponentPatch components) {
+        return FluidResourceHooks.of(fluid.get(), components);
     }
 }
