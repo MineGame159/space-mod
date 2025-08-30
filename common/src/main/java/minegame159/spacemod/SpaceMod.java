@@ -1,5 +1,6 @@
 package minegame159.spacemod;
 
+import com.mojang.logging.LogUtils;
 import minegame159.spacemod.blocks.ModBlocks;
 import minegame159.spacemod.worldgen.feature.ModFeatures;
 import minegame159.spacemod.worldgen.placement.ModPlacements;
