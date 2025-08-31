@@ -46,6 +46,14 @@ public class FluidApiImpl implements ResourceBlockLookup<ResourceView<FluidResou
         return new FluidApiImpl();
     }
 
+    public static int mbToPlatformUnit(int mb) {
+        return mb * 81;
+    }
+
+    public static int platformUnitToMb(int unit) {
+        return unit / 81;
+    }
+
     @SuppressWarnings("unchecked")
     public static ResourceView<FluidResource> wrap(Storage<FluidVariant> storage) {
         // Slotted storage

@@ -15,6 +15,16 @@ public final class FluidApi {
     public static final ResourceBlockLookup<ResourceView<FluidResource>, @Nullable Direction> SIDED = createSided();
 
     @ExpectPlatform
+    public static int mbToPlatformUnit(int mb) {
+        throw new AssertionError();
+    }
+
+    @ExpectPlatform
+    public static int platformUnitToMb(int unit) {
+        throw new AssertionError();
+    }
+
+    @ExpectPlatform
     private static ResourceBlockLookup<ResourceView<FluidResource>, @Nullable Direction> createSided() {
         throw new AssertionError();
     }
