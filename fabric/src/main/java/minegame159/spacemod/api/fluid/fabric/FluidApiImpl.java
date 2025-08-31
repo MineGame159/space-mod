@@ -16,9 +16,9 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("unused")
-public class FluidApiImpl implements ResourceBlockLookup<FluidResource, Direction> {
+public class FluidApiImpl implements ResourceBlockLookup<ResourceView<FluidResource>, @Nullable Direction> {
     @Override
-    public <T extends BlockEntity> void register(BlockEntityType<T> type, Provider<T, FluidResource, Direction> provider) {
+    public <T extends BlockEntity> void register(BlockEntityType<T> type, Provider<T, ResourceView<FluidResource>, Direction> provider) {
         FluidStorage.SIDED.registerForBlockEntity(
             (blockEntity, direction) -> {
                 var view = provider.get(blockEntity, direction);
@@ -42,7 +42,7 @@ public class FluidApiImpl implements ResourceBlockLookup<FluidResource, Directio
         return wrap(storage);
     }
 
-    public static ResourceBlockLookup<FluidResource, @Nullable Direction> createSided() {
+    public static ResourceBlockLookup<ResourceView<FluidResource>, @Nullable Direction> createSided() {
         return new FluidApiImpl();
     }
 

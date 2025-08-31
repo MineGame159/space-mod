@@ -23,6 +23,7 @@
         "minecraft": "~${minecraft_version}",
         "java": ">=21",
         "architectury": ">=${architectury_api_version}",
-        "fabric-api": "*"
+        "fabric-api": "*",
+        "team_reborn_energy": ">=${techreborn_energy_version}"
     }
 }

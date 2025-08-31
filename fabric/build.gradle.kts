@@ -31,6 +31,8 @@ val fabric_loader_version: String by rootProject
 val fabric_api_version: String by rootProject
 val architectury_api_version: String by rootProject
 
+val techreborn_energy_version: String by rootProject
+
 dependencies {
     modImplementation("net.fabricmc:fabric-loader:$fabric_loader_version")
 
@@ -42,6 +44,10 @@ dependencies {
 
     commonBundle(project(":common", "namedElements")) { isTransitive = false }
     shadowBundle(project(":common", "transformProductionFabric")) { isTransitive = false }
+
+    // TechReborn Energy
+    modApi("teamreborn:energy:$techreborn_energy_version") { isTransitive = false }
+    include("teamreborn:energy:$techreborn_energy_version") { isTransitive = false }
 }
 
 tasks.processResources {
@@ -50,7 +56,8 @@ tasks.processResources {
         "version" to project.version,
         "minecraft_version" to minecraft_version,
         "fabric_loader_version" to fabric_loader_version,
-        "architectury_api_version" to architectury_api_version
+        "architectury_api_version" to architectury_api_version,
+        "techreborn_energy_version" to techreborn_energy_version
     )
 
     inputs.properties(props)

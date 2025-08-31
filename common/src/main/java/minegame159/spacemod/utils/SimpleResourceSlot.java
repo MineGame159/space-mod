@@ -1,7 +1,13 @@
 package minegame159.spacemod.utils;
 
+import com.mojang.serialization.Codec;
+import minegame159.spacemod.SpaceMod;
 import minegame159.spacemod.api.ResourceInteraction;
 import minegame159.spacemod.api.ResourceSlot;
+import minegame159.spacemod.api.ResourceSnapshot;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtOps;
 
 import java.util.function.Predicate;
 
@@ -31,6 +37,8 @@ public abstract class SimpleResourceSlot<R> implements ResourceSlot<R> {
     }
 
     protected abstract R getEmpty();
+
+    protected abstract Codec<ResourceSnapshot<R>> getCodec();
 
     @Override
     public R getResource() {
@@ -132,5 +140,23 @@ public abstract class SimpleResourceSlot<R> implements ResourceSlot<R> {
 
     public int extractSkipMask(R resource, int maxAmount) {
         return extractImpl(resource, maxAmount, true);
+    }
+
+    public void load(CompoundTag tag, HolderLookup.Provider registries, String name) {
+        if (tag.contains(name, CompoundTag.TAG_COMPOUND)) {
+            var ops = registries.createSerializationContext(NbtOps.INSTANCE);
+
+            getCodec().parse(ops, tag.getCompound(name))
+                .resultOrPartial(msg -> SpaceMod.LOGGER.error("Failed to parse resource snapshot: '{}'", msg))
+                .ifPresent(snapshot -> setResource(snapshot.resource(), snapshot.amount()));
+        }
+    }
+
+    public void save(CompoundTag tag, HolderLookup.Provider registries, String name) {
+        var ops = registries.createSerializationContext(NbtOps.INSTANCE);
+
+        getCodec().encodeStart(ops, new ResourceSnapshot<>(getResource(), getAmount()))
+            .resultOrPartial(msg -> SpaceMod.LOGGER.error("Failed to encode resource snapshot: '{}'", msg))
+            .ifPresent(snapshotTag -> tag.put(name, snapshotTag));
     }
 }

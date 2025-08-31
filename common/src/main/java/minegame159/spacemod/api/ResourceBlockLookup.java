@@ -6,14 +6,14 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import org.jetbrains.annotations.Nullable;
 
-public interface ResourceBlockLookup<R, C> {
-    <T extends BlockEntity> void register(BlockEntityType<T> type, Provider<T, R, C> provider);
+public interface ResourceBlockLookup<A, C> {
+    <T extends BlockEntity> void register(BlockEntityType<T> type, Provider<T, A, C> provider);
 
     @Nullable
-    ResourceView<R> find(Level level, BlockPos pos, C context);
+    A find(Level level, BlockPos pos, C context);
 
-    interface Provider<T extends BlockEntity, R, C> {
+    interface Provider<T extends BlockEntity, A, C> {
         @Nullable
-        ResourceView<R> get(T blockEntity, C context);
+        A get(T blockEntity, C context);
     }
 }
