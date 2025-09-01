@@ -1,0 +1,12 @@
+{
+    "type": "spacemod:refining",
+    "input": {
+        "fluid": "#spacemod:crude_oil",
+        "amount": 1000
+    },
+    "ticks": 200,
+    "output": {
+        "fluid": "spacemod:rocket_fuel",
+        "amount": 100
+    }
+}

@@ -47,11 +47,15 @@ public abstract class SimpleResourceSlot<R> implements ResourceSlot<R> {
 
     @Override
     public void setResource(R resource, int amount) {
-        this.resource = resource;
-        this.amount = amount;
+        if (amount == 0) {
+            resource = getEmpty();
+        }
 
-        if (onUpdate != null) {
-            onUpdate.run();
+        if (!this.resource.equals(resource) || this.amount != amount) {
+            this.resource = resource;
+            this.amount = amount;
+
+            update();
         }
     }
 
@@ -114,6 +118,10 @@ public abstract class SimpleResourceSlot<R> implements ResourceSlot<R> {
 
             if (amount > 0 && apply) {
                 this.amount -= amount;
+
+                if (this.amount == 0) {
+                    this.resource = getEmpty();
+                }
             }
 
             return amount;
@@ -128,18 +136,18 @@ public abstract class SimpleResourceSlot<R> implements ResourceSlot<R> {
             return 0;
         }
 
-        var apply = interaction != ResourceInteraction.Simulation;
-        var amount = extractImpl(resource, maxAmount, apply);
-
-        if (apply && this.amount == 0) {
-            this.resource = getEmpty();
-        }
-
-        return amount;
+        return extractImpl(resource, maxAmount, interaction != ResourceInteraction.Simulation);
     }
 
     public int extractSkipMask(R resource, int maxAmount) {
         return extractImpl(resource, maxAmount, true);
+    }
+
+    @Override
+    public void update() {
+        if (onUpdate != null) {
+            onUpdate.run();
+        }
     }
 
     public void load(CompoundTag tag, HolderLookup.Provider registries, String name) {

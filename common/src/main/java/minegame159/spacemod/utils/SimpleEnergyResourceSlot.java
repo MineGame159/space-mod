@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import minegame159.spacemod.api.ResourceInteraction;
 import minegame159.spacemod.api.ResourceSnapshot;
 import minegame159.spacemod.api.energy.EnergyResource;
+import minegame159.spacemod.menus.sync.EnergyMenuData;
 
 import java.util.function.Predicate;
 
@@ -27,5 +28,9 @@ public class SimpleEnergyResourceSlot extends SimpleResourceSlot<EnergyResource>
     @Override
     protected Codec<ResourceSnapshot<EnergyResource>> getCodec() {
         return CODEC;
+    }
+
+    public EnergyMenuData getMenuData(int usage) {
+        return new EnergyMenuData(getAmount(), getCapacity(), usage);
     }
 }

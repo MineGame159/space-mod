@@ -52,13 +52,17 @@ public class ResourceSlot2StorageView extends SnapshotParticipant<ResourceSnapsh
 
         updateSnapshots(transaction);
 
-        transaction.addCloseCallback((transaction1, result) -> {
-            if (result.wasCommitted()) {
-                slot.setResource(slot.getResource(), slot.getAmount());
-            }
-        });
+        var amount = slot.insert(FluidResource.of(resource.getFluid(), resource.getComponents()), (int) maxAmount, ResourceInteraction.Automatic);
 
-        return slot.insert(FluidResource.of(resource.getFluid(), resource.getComponents()), (int) maxAmount, ResourceInteraction.Automatic);
+        if (amount > 0) {
+            transaction.addCloseCallback((transaction1, result) -> {
+                if (result.wasCommitted()) {
+                    slot.update();
+                }
+            });
+        }
+
+        return amount;
     }
 
     @Override
@@ -69,12 +73,16 @@ public class ResourceSlot2StorageView extends SnapshotParticipant<ResourceSnapsh
 
         updateSnapshots(transaction);
 
-        transaction.addCloseCallback((transaction1, result) -> {
-            if (result.wasCommitted()) {
-                slot.setResource(slot.getResource(), slot.getAmount());
-            }
-        });
+        var amount = slot.extract(FluidResource.of(resource.getFluid(), resource.getComponents()), (int) maxAmount, ResourceInteraction.Automatic);
 
-        return slot.extract(FluidResource.of(resource.getFluid(), resource.getComponents()), (int) maxAmount, ResourceInteraction.Automatic);
+        if (amount > 0) {
+            transaction.addCloseCallback((transaction1, result) -> {
+                if (result.wasCommitted()) {
+                    slot.update();
+                }
+            });
+        }
+
+        return amount;
     }
 }

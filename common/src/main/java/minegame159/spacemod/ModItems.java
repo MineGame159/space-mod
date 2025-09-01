@@ -50,6 +50,11 @@ public final class ModItems {
         () -> new ArchitecturyBucketItem(ModFluids.ROCKET_FUEL, new Item.Properties().arch$tab(TAB))
     );
 
+    public static final RegistrySupplier<BlockItem> REFINERY = REGISTRY.register(
+        "refinery",
+        () -> new BlockItem(ModBlocks.REFINERY.get(), new Item.Properties().arch$tab(TAB))
+    );
+
     public static final RegistrySupplier<BlockItem> ROCKET_SILO = REGISTRY.register(
         "rocket_silo",
         () -> new BlockItem(ModBlocks.ROCKET_SILO.get(), new Item.Properties().arch$tab(TAB))

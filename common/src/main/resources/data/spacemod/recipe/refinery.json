@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "spacemod:machine",
+    "key": {
+        "I": { "tag": "c:ingots/iron" },
+        "G": { "tag": "c:glass_blocks" },
+        "C": { "item": "minecraft:cauldron" },
+        "R": { "item": "minecraft:redstone_block" },
+        "S": { "item": "minecraft:stone_bricks" }
+    },
+    "pattern": [
+        "IGI",
+        "CRC",
+        "ISI"
+    ],
+    "result": {
+        "id": "spacemod:refinery"
+    }
+}

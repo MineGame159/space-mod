@@ -4,15 +4,20 @@ import com.google.common.collect.Iterators;
 import minegame159.spacemod.api.*;
 import minegame159.spacemod.api.fluid.FluidResource;
 import minegame159.spacemod.utils.SimpleResourceView;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.transfer.v1.client.fluid.FluidVariantRendering;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.fabricmc.fabric.api.transfer.v1.storage.SlottedStorage;
 import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.material.Fluid;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("unused")
@@ -52,6 +57,17 @@ public class FluidApiImpl implements ResourceBlockLookup<ResourceView<FluidResou
 
     public static int platformUnitToMb(int unit) {
         return unit / 81;
+    }
+
+    @Environment(EnvType.CLIENT)
+    @Nullable
+    public static TextureAtlasSprite getSprite(Fluid fluid) {
+        return FluidVariantRendering.getSprite(FluidVariant.of(fluid));
+    }
+
+    @Environment(EnvType.CLIENT)
+    public static int getColor(Fluid fluid) {
+        return FluidVariantRendering.getColor(FluidVariant.of(fluid));
     }
 
     @SuppressWarnings("unchecked")

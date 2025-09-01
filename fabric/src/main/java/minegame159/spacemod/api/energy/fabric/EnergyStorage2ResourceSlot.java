@@ -74,4 +74,7 @@ public class EnergyStorage2ResourceSlot implements ResourceSlot<EnergyResource> 
             return amount;
         }
     }
+
+    @Override
+    public void update() {}
 }

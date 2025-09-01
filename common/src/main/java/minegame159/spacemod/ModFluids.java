@@ -40,8 +40,8 @@ public final class ModFluids {
         () -> ModFluids.CRUDE_OIL_FLOWING,
         () -> ModFluids.CRUDE_OIL
     )
-        .flowingTexture(ResourceLocation.fromNamespaceAndPath(SpaceMod.ID, "block/crude_oil_flow"))
-        .sourceTexture(ResourceLocation.fromNamespaceAndPath(SpaceMod.ID, "block/crude_oil_still"))
+        .flowingTexture(SpaceMod.id("block/crude_oil_flow"))
+        .sourceTexture(SpaceMod.id("block/crude_oil_still"))
         .color(FastColor.ARGB32.color(50, 50, 50))
         .block(ModBlocks.CRUDE_OIL)
         .bucketItem(ModItems.CRUDE_OIL_BUCKET)

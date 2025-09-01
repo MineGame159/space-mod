@@ -53,13 +53,17 @@ public class ResourceSlot2EnergyStorage extends SnapshotParticipant<ResourceSnap
 
         updateSnapshots(transaction);
 
-        transaction.addCloseCallback((transaction1, result) -> {
-            if (result.wasCommitted()) {
-                slot.setResource(slot.getResource(), slot.getAmount());
-            }
-        });
+        var amount = slot.insert(EnergyResource.INSTANCE, (int) maxAmount, ResourceInteraction.Automatic);
 
-        return slot.insert(EnergyResource.INSTANCE, (int) maxAmount, ResourceInteraction.Automatic);
+        if (amount > 0) {
+            transaction.addCloseCallback((transaction1, result) -> {
+                if (result.wasCommitted()) {
+                    slot.update();
+                }
+            });
+        }
+
+        return amount;
     }
 
     @Override
@@ -70,12 +74,16 @@ public class ResourceSlot2EnergyStorage extends SnapshotParticipant<ResourceSnap
 
         updateSnapshots(transaction);
 
-        transaction.addCloseCallback((transaction1, result) -> {
-            if (result.wasCommitted()) {
-                slot.setResource(slot.getResource(), slot.getAmount());
-            }
-        });
+        var amount = slot.insert(EnergyResource.INSTANCE, (int) maxAmount, ResourceInteraction.Automatic);
 
-        return slot.insert(EnergyResource.INSTANCE, (int) maxAmount, ResourceInteraction.Automatic);
+        if (amount > 0) {
+            transaction.addCloseCallback((transaction1, result) -> {
+                if (result.wasCommitted()) {
+                    slot.update();
+                }
+            });
+        }
+
+        return amount;
     }
 }

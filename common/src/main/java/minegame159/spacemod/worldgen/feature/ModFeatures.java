@@ -7,7 +7,6 @@ import minegame159.spacemod.SpaceMod;
 import minegame159.spacemod.worldgen.BiomeUtils;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -24,7 +23,7 @@ public final class ModFeatures {
                 GenerationStep.Decoration.FLUID_SPRINGS,
                 ResourceKey.create(
                     Registries.PLACED_FEATURE,
-                    ResourceLocation.fromNamespaceAndPath(SpaceMod.ID, "small_oil_field")
+                    SpaceMod.id("small_oil_field")
                 )
             )
         );
@@ -35,7 +34,7 @@ public final class ModFeatures {
                 GenerationStep.Decoration.FLUID_SPRINGS,
                 ResourceKey.create(
                     Registries.PLACED_FEATURE,
-                    ResourceLocation.fromNamespaceAndPath(SpaceMod.ID, "large_oil_field")
+                    SpaceMod.id("large_oil_field")
                 )
             )
         );

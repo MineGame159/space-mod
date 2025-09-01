@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import minegame159.spacemod.api.ResourceInteraction;
 import minegame159.spacemod.api.ResourceSnapshot;
 import minegame159.spacemod.api.fluid.FluidResource;
+import minegame159.spacemod.menus.sync.FluidMenuData;
 
 import java.util.function.Predicate;
 
@@ -28,5 +29,9 @@ public class SimpleFluidResourceSlot extends SimpleResourceSlot<FluidResource> {
     @Override
     protected Codec<ResourceSnapshot<FluidResource>> getCodec() {
         return CODEC;
+    }
+
+    public FluidMenuData getMenuData() {
+        return new FluidMenuData(getResource().getFluid(), getAmount(), getCapacity());
     }
 }

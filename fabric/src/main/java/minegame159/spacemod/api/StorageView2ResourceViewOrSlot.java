@@ -101,4 +101,7 @@ public class StorageView2ResourceViewOrSlot implements ResourceView<FluidResourc
             return amount;
         }
     }
+
+    @Override
+    public void update() {}
 }

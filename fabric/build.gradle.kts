@@ -32,6 +32,8 @@ val fabric_api_version: String by rootProject
 val architectury_api_version: String by rootProject
 
 val techreborn_energy_version: String by rootProject
+val jade_version: String by rootProject
+val emi_version: String by rootProject
 
 dependencies {
     modImplementation("net.fabricmc:fabric-loader:$fabric_loader_version")
@@ -57,7 +59,10 @@ tasks.processResources {
         "minecraft_version" to minecraft_version,
         "fabric_loader_version" to fabric_loader_version,
         "architectury_api_version" to architectury_api_version,
-        "techreborn_energy_version" to techreborn_energy_version
+
+        "techreborn_energy_version" to techreborn_energy_version,
+        "jade_version" to jade_version,
+        "emi_version" to emi_version
     )
 
     inputs.properties(props)

@@ -16,4 +16,6 @@ public interface ResourceSlot<R> {
     int insert(R resource, int maxAmount, ResourceInteraction interaction);
 
     int extract(R resource, int maxAmount, ResourceInteraction interaction);
+
+    void update();
 }

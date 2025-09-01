@@ -6,6 +6,7 @@ import dev.architectury.registry.registries.RegistrySupplier;
 import minegame159.spacemod.ModFluids;
 import minegame159.spacemod.SpaceMod;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -52,6 +53,15 @@ public final class ModBlocks {
             .noLootTable()
             .liquid()
             .sound(SoundType.EMPTY)
+        )
+    );
+
+    public static final RegistrySupplier<RefineryBlock> REFINERY = REGISTRY.register(
+        "refinery",
+        () -> new RefineryBlock(BlockBehaviour.Properties.of()
+            .mapColor(DyeColor.GRAY)
+            .strength(3.5f)
+            .requiresCorrectToolForDrops()
         )
     );
 

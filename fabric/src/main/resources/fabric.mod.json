@@ -12,6 +12,15 @@
         ],
         "client": [
             "minegame159.spacemod.fabric.client.SpaceModFabricClient"
+        ],
+        "server": [
+            "minegame159.spacemod.fabric.server.SpaceModFabricServer"
+        ],
+        "jade": [
+            "minegame159.spacemod.compat.jade.SpaceModJadePlugin"
+        ],
+        "emi": [
+            "minegame159.spacemod.compat.emi.SpaceModEmiPlugin"
         ]
     },
     "mixins": [
@@ -25,5 +34,9 @@
         "architectury": ">=${architectury_api_version}",
         "fabric-api": "*",
         "team_reborn_energy": ">=${techreborn_energy_version}"
+    },
+    "suggests": {
+        "jade": ">=${jade_version}",
+        "emi": ">=${emi_version}"
     }
 }

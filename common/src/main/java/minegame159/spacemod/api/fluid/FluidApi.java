@@ -4,7 +4,11 @@ import dev.architectury.hooks.fluid.FluidStackHooks;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import minegame159.spacemod.api.ResourceBlockLookup;
 import minegame159.spacemod.api.ResourceView;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.Direction;
+import net.minecraft.world.level.material.Fluid;
 import org.jetbrains.annotations.Nullable;
 
 public final class FluidApi {
@@ -21,6 +25,19 @@ public final class FluidApi {
 
     @ExpectPlatform
     public static int platformUnitToMb(int unit) {
+        throw new AssertionError();
+    }
+
+    @ExpectPlatform
+    @Environment(EnvType.CLIENT)
+    @Nullable
+    public static TextureAtlasSprite getSprite(Fluid fluid) {
+        throw new AssertionError();
+    }
+
+    @ExpectPlatform
+    @Environment(EnvType.CLIENT)
+    public static int getColor(Fluid fluid) {
         throw new AssertionError();
     }
 
