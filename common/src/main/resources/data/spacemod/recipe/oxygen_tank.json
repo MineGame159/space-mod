@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "spacemod:item",
+    "key": {
+        "I": { "tag": "c:ingots/iron" },
+        "W": { "item": "minecraft:green_wool" }
+    },
+    "pattern": [
+        "WWW",
+        "I I",
+        "III"
+    ],
+    "result": {
+        "id": "spacemod:oxygen_tank"
+    }
+}

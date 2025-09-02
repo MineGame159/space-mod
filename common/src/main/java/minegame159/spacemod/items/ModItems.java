@@ -1,9 +1,11 @@
-package minegame159.spacemod;
+package minegame159.spacemod.items;
 
 import dev.architectury.core.item.ArchitecturyBucketItem;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
+import minegame159.spacemod.ModFluids;
+import minegame159.spacemod.SpaceMod;
 import minegame159.spacemod.blocks.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
@@ -58,5 +60,14 @@ public final class ModItems {
     public static final RegistrySupplier<BlockItem> ROCKET_SILO = REGISTRY.register(
         "rocket_silo",
         () -> new BlockItem(ModBlocks.ROCKET_SILO.get(), new Item.Properties().arch$tab(TAB))
+    );
+
+    public static final RegistrySupplier<OxygenTankItem> OXYGEN_TANK = REGISTRY.register(
+        "oxygen_tank",
+        () -> new OxygenTankItem(new Item.Properties()
+            .stacksTo(1)
+            .component(ModDataComponents.OXYGEN_STORAGE.get(), new OxygenStorage(0, 1000))
+            .arch$tab(TAB)
+        )
     );
 }

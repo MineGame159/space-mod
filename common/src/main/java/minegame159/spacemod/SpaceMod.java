@@ -4,6 +4,8 @@ import com.mojang.logging.LogUtils;
 import dev.architectury.event.events.common.InteractionEvent;
 import minegame159.spacemod.blocks.ModBlockEntities;
 import minegame159.spacemod.blocks.ModBlocks;
+import minegame159.spacemod.items.ModDataComponents;
+import minegame159.spacemod.items.ModItems;
 import minegame159.spacemod.menus.ModMenuTypes;
 import minegame159.spacemod.recipe.ModRecipeSerializers;
 import minegame159.spacemod.recipe.ModRecipeTypes;
@@ -23,6 +25,8 @@ public final class SpaceMod {
         ModFluids.init();
         ModBlocks.init();
         ModBlockEntities.init();
+
+        ModDataComponents.init();
         ModItems.init();
 
         ModRecipeTypes.init();

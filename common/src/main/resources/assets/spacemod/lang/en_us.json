@@ -13,6 +13,7 @@
     "item.spacemod.rocket_fuel_bucket": "Rocket Fuel Bucket",
     "item.spacemod.refinery": "Refinery",
     "item.spacemod.rocket_silo": "Rocket Silo",
+    "item.spacemod.oxygen_tank": "Oxygen Tank",
 
     "tag.fluid.spacemod.crude_oil": "Crude Oil",
     "tag.fluid.spacemod.rocket_fuel": "Rocket Fuel",
@@ -21,5 +22,6 @@
 
     "emi.category.spacemod.refining": "Refining",
 
-    "text.spacemod.tick_duration": "Takes %1$s ticks"
+    "text.spacemod.tick_duration": "Takes %1$s ticks",
+    "text.spacemod.oxygen_storage": "Oxygen: %1$s%%"
 }
