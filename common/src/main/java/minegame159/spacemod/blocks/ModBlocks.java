@@ -65,6 +65,15 @@ public final class ModBlocks {
         )
     );
 
+    public static final RegistrySupplier<OxygenCollectorBlock> OXYGEN_COLLECTOR = REGISTRY.register(
+        "oxygen_collector",
+        () -> new OxygenCollectorBlock(BlockBehaviour.Properties.of()
+            .mapColor(DyeColor.GRAY)
+            .strength(3.5f)
+            .requiresCorrectToolForDrops()
+        )
+    );
+
     public static final RegistrySupplier<RocketSiloBlock> ROCKET_SILO = REGISTRY.register(
         "rocket_silo",
         () -> new RocketSiloBlock(BlockBehaviour.Properties.of())

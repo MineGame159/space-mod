@@ -6,24 +6,21 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.item.ItemStack;
 
 import java.util.Optional;
 
 public class RefineryMenu extends SyncedMenu<RefineryMenu.Data, RefineryBlockEntity> {
     public RefineryMenu(int id, Inventory playerInventory, FriendlyByteBuf buffer) {
-        super(id, ModMenuTypes.REFINERY.get(), playerInventory, buffer);
+        super(id, ModMenuTypes.REFINERY.get(), playerInventory, null, buffer);
+
+        init(playerInventory);
     }
 
     public RefineryMenu(int id, Inventory playerInventory, RefineryBlockEntity blockEntity, ContainerLevelAccess access) {
-        super(id, ModMenuTypes.REFINERY.get(), playerInventory, blockEntity, access);
-    }
+        super(id, ModMenuTypes.REFINERY.get(), playerInventory, null, blockEntity, access);
 
-    @Override
-    public ItemStack quickMoveStack(Player player, int index) {
-        return ItemStack.EMPTY;
+        init(playerInventory);
     }
 
     public record Data(EnergyMenuData energy, FluidMenuData input, FluidMenuData output, Optional<Float> progress) implements MenuData<Data> {

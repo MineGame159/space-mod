@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "spacemod:machine",
+    "key": {
+        "I": { "tag": "c:ingots/iron" },
+        "W": { "tag": "minecraft:wool" },
+        "O": { "item": "spacemod:oxygen_tank" },
+        "R": { "item": "minecraft:redstone_block" },
+        "S": { "item": "minecraft:stone_bricks" }
+    },
+    "pattern": [
+        "IWI",
+        "ORO",
+        "ISI"
+    ],
+    "result": {
+        "id": "spacemod:oxygen_collector"
+    }
+}

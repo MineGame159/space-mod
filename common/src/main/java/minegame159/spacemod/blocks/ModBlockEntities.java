@@ -17,6 +17,7 @@ public final class ModBlockEntities {
     public static void init() {
         REGISTRY.register();
 
+        // Refinery
         EnergyApi.SIDED.register(
             REFINERY.get(),
             (blockEntity, context) -> blockEntity.energy
@@ -25,6 +26,12 @@ public final class ModBlockEntities {
         FluidApi.SIDED.register(
             REFINERY.get(),
             (blockEntity, context) -> SimpleResourceView.withMainOutput(blockEntity.input, blockEntity.output)
+        );
+
+        // Oxygen collector
+        EnergyApi.SIDED.register(
+            OXYGEN_COLLECTOR.get(),
+            (blockEntity, context) -> blockEntity.energy
         );
     }
 
@@ -39,5 +46,11 @@ public final class ModBlockEntities {
         "refinery",
         () -> BlockEntityType.Builder.of(RefineryBlockEntity::new, ModBlocks.REFINERY.get())
             .build(Util.fetchChoiceType(References.BLOCK_ENTITY, "refinery"))
+    );
+
+    public static final DeferredSupplier<BlockEntityType<OxygenCollectorBlockEntity>> OXYGEN_COLLECTOR = REGISTRY.register(
+        "oxygen_collector",
+        () -> BlockEntityType.Builder.of(OxygenCollectorBlockEntity::new, ModBlocks.OXYGEN_COLLECTOR.get())
+            .build(Util.fetchChoiceType(References.BLOCK_ENTITY, "oxygen_collector"))
     );
 }

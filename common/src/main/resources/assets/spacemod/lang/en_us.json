@@ -7,11 +7,13 @@
     "block.spacemod.crude_oil": "Crude Oil",
     "block.spacemod.rocket_fuel": "Rocket Fuel",
     "block.spacemod.refinery": "Refinery",
+    "block.spacemod.oxygen_collector": "Oxygen Collector",
     "block.spacemod.rocket_silo": "Rocket Silo",
 
     "item.spacemod.crude_oil_bucket": "Crude Oil Bucket",
     "item.spacemod.rocket_fuel_bucket": "Rocket Fuel Bucket",
     "item.spacemod.refinery": "Refinery",
+    "item.spacemod.oxygen_collector": "Oxygen Collector",
     "item.spacemod.rocket_silo": "Rocket Silo",
     "item.spacemod.oxygen_tank": "Oxygen Tank",
 
@@ -21,6 +23,7 @@
     "death.attack.space_suffocation": "%1$s suffocated in space.",
 
     "emi.category.spacemod.refining": "Refining",
+    "emi.category.spacemod.fill_oxygen": "Fill with oxygen",
 
     "text.spacemod.tick_duration": "Takes %1$s ticks",
     "text.spacemod.oxygen_storage": "Oxygen: %1$s%%"

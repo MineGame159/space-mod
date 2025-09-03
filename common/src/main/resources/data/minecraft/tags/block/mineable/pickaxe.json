@@ -1,5 +1,6 @@
 {
     "values": [
-        "spacemod:refinery"
+        "spacemod:refinery",
+        "spacemod:oxygen_collector"
     ]
 }

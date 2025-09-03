@@ -1,0 +1,8 @@
+{
+    "parent": "minecraft:block/orientable",
+    "textures": {
+        "front": "spacemod:block/machine_frame",
+        "side": "spacemod:block/machine_frame",
+        "top": "spacemod:block/oxygen_collector_top"
+    }
+}

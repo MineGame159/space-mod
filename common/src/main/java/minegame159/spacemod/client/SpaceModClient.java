@@ -3,6 +3,7 @@ package minegame159.spacemod.client;
 import dev.architectury.registry.client.rendering.RenderTypeRegistry;
 import dev.architectury.registry.menu.MenuRegistry;
 import minegame159.spacemod.ModFluids;
+import minegame159.spacemod.client.screens.OxygenCollectorScreen;
 import minegame159.spacemod.client.screens.RefineryScreen;
 import minegame159.spacemod.menus.ModMenuTypes;
 import net.fabricmc.api.EnvType;
@@ -18,6 +19,7 @@ public class SpaceModClient {
         );
 
         MenuRegistry.registerScreenFactory(ModMenuTypes.REFINERY.get(), RefineryScreen::new);
+        MenuRegistry.registerScreenFactory(ModMenuTypes.OXYGEN_COLLECTOR.get(), OxygenCollectorScreen::new);
 
         MenuSyncClient.init();
     }

@@ -25,4 +25,9 @@ public final class ModMenuTypes {
         "refinery",
         () -> MenuRegistry.ofExtended(RefineryMenu::new)
     );
+
+    public static final DeferredSupplier<MenuType<OxygenCollectorMenu>> OXYGEN_COLLECTOR = REGISTRY.register(
+        "oxygen_collector",
+        () -> MenuRegistry.ofExtended(OxygenCollectorMenu::new)
+    );
 }

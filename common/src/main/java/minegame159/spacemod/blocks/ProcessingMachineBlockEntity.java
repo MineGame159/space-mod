@@ -34,25 +34,24 @@ public abstract class ProcessingMachineBlockEntity<R extends ProcessingRecipe<I>
         return Optional.of((float) (progress + 1) / recipe.getTicks());
     }
 
-    public int getCurrentEnergyUsage() {
-        if (recipe == null) return 0;
-        return -energyConsumption;
-    }
-
     protected abstract I getCurrentInput();
 
     protected abstract void onRecipeDone(R recipe);
 
     @Override
-    public void tick() {
-        if (!tryTickWork()) {
+    protected boolean tryTickWork() {
+        if (!super.tryTickWork()) {
             if (recipe != null && !recipe.matches(getCurrentInput(), level)) {
                 recipe = null;
                 progress = 0;
 
                 setChanged();
             }
+
+            return false;
         }
+
+        return true;
     }
 
     @Override
@@ -91,7 +90,6 @@ public abstract class ProcessingMachineBlockEntity<R extends ProcessingRecipe<I>
             recipe = null;
             progress = 0;
 
-            setChanged();
             return true;
         }
 

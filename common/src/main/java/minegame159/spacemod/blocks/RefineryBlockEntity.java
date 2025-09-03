@@ -62,7 +62,7 @@ public class RefineryBlockEntity extends ProcessingMachineBlockEntity<SimpleFlui
     @Override
     public RefineryMenu.Data getMenuData() {
         return new RefineryMenu.Data(
-            energy.getMenuData(getCurrentEnergyUsage()),
+            getEnergyMenuData(),
             input.getMenuData(),
             output.getMenuData(),
             getProgress()

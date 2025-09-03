@@ -2,6 +2,7 @@ package minegame159.spacemod.blocks;
 
 import minegame159.spacemod.api.ResourceInteraction;
 import minegame159.spacemod.api.energy.EnergyResource;
+import minegame159.spacemod.menus.sync.EnergyMenuData;
 import minegame159.spacemod.utils.SimpleEnergyResourceSlot;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -22,9 +23,11 @@ public abstract class MachineBlockEntity extends BlockEntity {
         this::setChanged
     );
 
-    protected final int energyConsumption;
+    private final int energyConsumption;
+    private int currentEnergyConsumption;
 
     private List<Runnable> changeListeners;
+    private boolean changed;
 
     public MachineBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState, int energyConsumption) {
         super(type, pos, blockState);
@@ -47,33 +50,47 @@ public abstract class MachineBlockEntity extends BlockEntity {
         }
     }
 
+    public EnergyMenuData getEnergyMenuData() {
+        return new EnergyMenuData(energy.getAmount(), energy.getCapacity(), -currentEnergyConsumption);
+    }
+
     @Override
     public void setChanged() {
         super.setChanged();
-
-        if (changeListeners != null) {
-            for (var listener : changeListeners) {
-                listener.run();
-            }
-        }
+        changed = true;
     }
 
     protected abstract boolean tickWork();
 
-    public void tick() {
+    public final void tick() {
         tryTickWork();
+
+        if (changed && changeListeners != null) {
+            for (var listener : changeListeners) {
+                listener.run();
+            }
+        }
+
+        changed = false;
     }
 
     protected boolean tryTickWork() {
+        var newConsumption = 0;
+
         if (energy.getAmount() >= energyConsumption) {
             if (tickWork()) {
                 energy.extractSkipMask(EnergyResource.INSTANCE, energyConsumption);
+                newConsumption = energyConsumption;
             }
-
-            return true;
         }
 
-        return false;
+        if (newConsumption != currentEnergyConsumption || newConsumption > 0) {
+            setChanged();
+        }
+
+        currentEnergyConsumption = newConsumption;
+
+        return newConsumption > 0;
     }
 
     @Override

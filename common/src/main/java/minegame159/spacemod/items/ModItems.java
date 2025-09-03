@@ -57,6 +57,11 @@ public final class ModItems {
         () -> new BlockItem(ModBlocks.REFINERY.get(), new Item.Properties().arch$tab(TAB))
     );
 
+    public static final RegistrySupplier<BlockItem> OXYGEN_COLLECTOR = REGISTRY.register(
+        "oxygen_collector",
+        () -> new BlockItem(ModBlocks.OXYGEN_COLLECTOR.get(), new Item.Properties().arch$tab(TAB))
+    );
+
     public static final RegistrySupplier<BlockItem> ROCKET_SILO = REGISTRY.register(
         "rocket_silo",
         () -> new BlockItem(ModBlocks.ROCKET_SILO.get(), new Item.Properties().arch$tab(TAB))

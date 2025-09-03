@@ -20,6 +20,10 @@ public record OxygenStorage(int amount, int capacity) {
         OxygenStorage::new
     );
 
+    public int free() {
+        return capacity - amount;
+    }
+
     public float progress() {
         return (float) amount / capacity;
     }
