@@ -5,6 +5,7 @@ import minegame159.spacemod.items.ModDataComponents;
 import minegame159.spacemod.items.OxygenStorage;
 import minegame159.spacemod.menus.OxygenCollectorMenu;
 import minegame159.spacemod.menus.sync.SyncedMenuProvider;
+import minegame159.spacemod.planets.Planets;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -27,6 +28,9 @@ public class OxygenCollectorBlockEntity extends MachineBlockEntity implements Sy
 
     @Override
     protected boolean tickWork() {
+        var planet = Planets.getForDimension(level.dimension());
+        if (planet == null || !planet.hasOxygen()) return false;
+
         var stack = container.getItem(0);
         var storage = stack.get(ModDataComponents.OXYGEN_STORAGE.get());
 

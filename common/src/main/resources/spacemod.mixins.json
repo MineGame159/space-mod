@@ -1,18 +1,19 @@
 {
-    "required": true,
-    "package": "minegame159.spacemod.mixin",
-    "compatibilityLevel": "JAVA_21",
-    "minVersion": "0.8",
-    "client": [
-    ],
-    "mixins": [
-        "fluid.BoatMixin",
-        "fluid.EntityMixin",
-        "fluid.ExperienceOrbMixin",
-        "fluid.ItemEntityMixin",
-        "fluid.LivingEntityMixin"
-    ],
-    "injectors": {
-        "defaultRequire": 1
-    }
+  "required": true,
+  "package": "minegame159.spacemod.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "ReloadableServerResourcesMixin",
+    "fluid.BoatMixin",
+    "fluid.EntityMixin",
+    "fluid.ExperienceOrbMixin",
+    "fluid.ItemEntityMixin",
+    "fluid.LivingEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

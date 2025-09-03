@@ -26,5 +26,6 @@
     "emi.category.spacemod.fill_oxygen": "Fill with oxygen",
 
     "text.spacemod.tick_duration": "Takes %1$s ticks",
-    "text.spacemod.oxygen_storage": "Oxygen: %1$s%%"
+    "text.spacemod.oxygen_storage": "Oxygen: %1$s%%",
+    "text.spacemod.planet_without_oxygen": "No oxygen on this planet"
 }
