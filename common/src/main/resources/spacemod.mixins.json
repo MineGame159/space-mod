@@ -8,12 +8,16 @@
         "client.LevelRendererMixin"
     ],
     "mixins": [
-        "ReloadableServerResourcesMixin",
         "fluid.BoatMixin",
         "fluid.EntityMixin",
         "fluid.ExperienceOrbMixin",
         "fluid.ItemEntityMixin",
         "fluid.LivingEntityMixin",
+        "planets.BaseFireBlockMixin",
+        "planets.BlockItemMixin",
+        "planets.CampfireBlockMixin",
+        "planets.FlintAndSteelItemMixin",
+        "planets.ReloadableServerResourcesMixin",
         "space.BucketItemMixin"
     ],
     "injectors": {

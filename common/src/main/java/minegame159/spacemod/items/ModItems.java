@@ -7,10 +7,12 @@ import dev.architectury.registry.registries.RegistrySupplier;
 import minegame159.spacemod.ModFluids;
 import minegame159.spacemod.SpaceMod;
 import minegame159.spacemod.blocks.ModBlocks;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.StandingAndWallBlockItem;
 
 public final class ModItems {
     private ModItems() {}
@@ -73,6 +75,16 @@ public final class ModItems {
             .stacksTo(1)
             .component(ModDataComponents.OXYGEN_STORAGE.get(), new OxygenStorage(0, 1000))
             .arch$tab(TAB)
+        )
+    );
+
+    public static final RegistrySupplier<StandingAndWallBlockItem> UNLIT_TORCH = REGISTRY.register(
+        "unlit_torch",
+        () -> new StandingAndWallBlockItem(
+            ModBlocks.UNLIT_TORCH.get(),
+            ModBlocks.UNLIT_WALL_TORCH.get(),
+            new Item.Properties().arch$tab(TAB),
+            Direction.DOWN
         )
     );
 }

@@ -5,6 +5,7 @@ import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
 import dev.emi.emi.api.recipe.EmiRecipe;
 import dev.emi.emi.api.recipe.EmiRecipeCategory;
+import dev.emi.emi.api.recipe.EmiWorldInteractionRecipe;
 import dev.emi.emi.api.stack.EmiStack;
 import minegame159.spacemod.SpaceMod;
 import minegame159.spacemod.blocks.ModBlocks;
@@ -13,6 +14,7 @@ import minegame159.spacemod.items.ModDataComponents;
 import minegame159.spacemod.items.ModItems;
 import minegame159.spacemod.recipe.ModRecipeTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeInput;
@@ -29,6 +31,14 @@ public class SpaceModEmiPlugin implements EmiPlugin {
         registry.addStackProvider(RefineryScreen.class, new BaseScreenProvider<>());
 
         addFillOxygenRecipes(registry);
+
+        registry.addRecipe(EmiWorldInteractionRecipe.builder()
+            .id(SpaceMod.id("/light_torch"))
+            .leftInput(EmiStack.of(ModItems.UNLIT_TORCH.get()))
+            .rightInput(EmiStack.of(Items.FLINT_AND_STEEL), true)
+            .output(EmiStack.of(Items.TORCH))
+            .build()
+        );
     }
 
     private <I extends RecipeInput, R extends Recipe<I>> void addRecipes(EmiRegistry registry, RecipeType<R> type, Block block, BiFunction<EmiRecipeCategory, RecipeHolder<R>, EmiRecipe> factory) {

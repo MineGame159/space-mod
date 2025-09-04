@@ -78,4 +78,24 @@ public final class ModBlocks {
         "rocket_silo",
         () -> new RocketSiloBlock(BlockBehaviour.Properties.of())
     );
+
+    public static final RegistrySupplier<UnlitTorchBlock> UNLIT_TORCH = REGISTRY.register(
+        "unlit_torch",
+        () -> new UnlitTorchBlock(BlockBehaviour.Properties.of()
+            .noCollission()
+            .instabreak()
+            .sound(SoundType.WOOD)
+            .pushReaction(PushReaction.DESTROY)
+        )
+    );
+
+    public static final RegistrySupplier<UnlitWallTorchBlock> UNLIT_WALL_TORCH = REGISTRY.register(
+        "unlit_wall_torch",
+        () -> new UnlitWallTorchBlock(BlockBehaviour.Properties.of()
+            .noCollission()
+            .instabreak()
+            .sound(SoundType.WOOD)
+            .pushReaction(PushReaction.DESTROY)
+        )
+    );
 }

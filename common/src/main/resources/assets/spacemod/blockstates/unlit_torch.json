@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": {
+            "model": "spacemod:block/unlit_torch"
+        }
+    }
+}

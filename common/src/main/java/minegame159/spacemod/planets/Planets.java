@@ -3,6 +3,7 @@ package minegame159.spacemod.planets;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.mojang.serialization.JsonOps;
+import minegame159.spacemod.Space;
 import minegame159.spacemod.SpaceMod;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -42,6 +43,15 @@ public final class Planets {
         }
 
         return null;
+    }
+
+    public static boolean hasOxygen(ResourceKey<Level> key) {
+        if (key.location().equals(Space.KEY.location())) {
+            return false;
+        }
+
+        var planet = getForDimension(key);
+        return planet == null || planet.hasOxygen();
     }
 
     public static class Loader extends SimplePreparableReloadListener<Map<ResourceLocation, Planet>> {

@@ -9,6 +9,8 @@
     "block.spacemod.refinery": "Refinery",
     "block.spacemod.oxygen_collector": "Oxygen Collector",
     "block.spacemod.rocket_silo": "Rocket Silo",
+    "block.spacemod.unlit_torch": "Unlit Torch",
+    "block.spacemod.unlit_wall_torch": "Unlit Torch",
 
     "item.spacemod.crude_oil_bucket": "Crude Oil Bucket",
     "item.spacemod.rocket_fuel_bucket": "Rocket Fuel Bucket",
@@ -16,6 +18,7 @@
     "item.spacemod.oxygen_collector": "Oxygen Collector",
     "item.spacemod.rocket_silo": "Rocket Silo",
     "item.spacemod.oxygen_tank": "Oxygen Tank",
+    "item.spacemod.unlit_torch": "Unlit Torch",
 
     "tag.fluid.spacemod.crude_oil": "Crude Oil",
     "tag.fluid.spacemod.rocket_fuel": "Rocket Fuel",

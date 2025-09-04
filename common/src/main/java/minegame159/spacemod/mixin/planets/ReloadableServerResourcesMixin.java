@@ -1,4 +1,4 @@
-package minegame159.spacemod.mixin;
+package minegame159.spacemod.mixin.planets;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import minegame159.spacemod.planets.Planets;
