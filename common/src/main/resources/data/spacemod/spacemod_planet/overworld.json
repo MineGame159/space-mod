@@ -1,4 +1,5 @@
 {
     "dimension": "minecraft:overworld",
+    "texture": "spacemod:planet/overworld",
     "has_oxygen": true
 }

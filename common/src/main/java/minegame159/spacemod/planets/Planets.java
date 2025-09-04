@@ -26,6 +26,13 @@ public final class Planets {
         return PLANETS.get(id);
     }
 
+    public static Planet getOrThrow(ResourceLocation id) {
+        var planet = PLANETS.get(id);
+        if (planet == null) throw new IllegalArgumentException("Planet with the id '" + id + "' doesn't exist");
+
+        return planet;
+    }
+
     @Nullable
     public static Planet getForDimension(ResourceKey<Level> key) {
         for (var planet : PLANETS.values()) {
@@ -60,11 +67,7 @@ public final class Planets {
                 Planet.CODEC.parse(JsonOps.INSTANCE, element)
                     .resultOrPartial(s -> SpaceMod.LOGGER.error("Failed to decode planet '{}': {}", path, s))
                     .ifPresent(planet -> {
-                        var id = ResourceLocation.fromNamespaceAndPath(
-                            path.getNamespace(),
-                            path.getPath().substring(FOLDER.length(), path.getPath().length() - 5)
-                        );
-
+                        var id = path.withPath(path.getPath().substring(FOLDER.length() + 1, path.getPath().length() - 5));
                         planets.put(id, planet);
                     });
             }
