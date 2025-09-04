@@ -45,6 +45,10 @@ public final class Planets {
         return null;
     }
 
+    public static boolean hasOxygen(Level level) {
+        return hasOxygen(level.dimension());
+    }
+
     public static boolean hasOxygen(ResourceKey<Level> key) {
         if (key.location().equals(Space.KEY.location())) {
             return false;

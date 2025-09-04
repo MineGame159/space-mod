@@ -28,7 +28,7 @@ public class OxygenCollectorBlockEntity extends MachineBlockEntity implements Sy
 
     @Override
     protected boolean tickWork() {
-        if (!Planets.hasOxygen(level.dimension())) return false;
+        if (!Planets.hasOxygen(level)) return false;
 
         var stack = container.getItem(0);
         var storage = stack.get(ModDataComponents.OXYGEN_STORAGE.get());

@@ -46,27 +46,34 @@ public final class ModItems {
 
     public static final RegistrySupplier<Item> CRUDE_OIL_BUCKET = REGISTRY.register(
         "crude_oil_bucket",
-        () -> new ArchitecturyBucketItem(ModFluids.CRUDE_OIL, new Item.Properties().arch$tab(TAB))
+        () -> new ArchitecturyBucketItem(ModFluids.CRUDE_OIL, new Item.Properties()
+            .stacksTo(1)
+            .arch$tab(TAB))
     );
 
     public static final RegistrySupplier<Item> ROCKET_FUEL_BUCKET = REGISTRY.register(
         "rocket_fuel_bucket",
-        () -> new ArchitecturyBucketItem(ModFluids.ROCKET_FUEL, new Item.Properties().arch$tab(TAB))
+        () -> new ArchitecturyBucketItem(ModFluids.ROCKET_FUEL, new Item.Properties()
+            .stacksTo(1)
+            .arch$tab(TAB))
     );
 
     public static final RegistrySupplier<BlockItem> REFINERY = REGISTRY.register(
         "refinery",
-        () -> new BlockItem(ModBlocks.REFINERY.get(), new Item.Properties().arch$tab(TAB))
+        () -> new BlockItem(ModBlocks.REFINERY.get(), new Item.Properties()
+            .arch$tab(TAB))
     );
 
     public static final RegistrySupplier<BlockItem> OXYGEN_COLLECTOR = REGISTRY.register(
         "oxygen_collector",
-        () -> new BlockItem(ModBlocks.OXYGEN_COLLECTOR.get(), new Item.Properties().arch$tab(TAB))
+        () -> new BlockItem(ModBlocks.OXYGEN_COLLECTOR.get(), new Item.Properties()
+            .arch$tab(TAB))
     );
 
     public static final RegistrySupplier<BlockItem> ROCKET_SILO = REGISTRY.register(
         "rocket_silo",
-        () -> new BlockItem(ModBlocks.ROCKET_SILO.get(), new Item.Properties().arch$tab(TAB))
+        () -> new BlockItem(ModBlocks.ROCKET_SILO.get(), new Item.Properties()
+            .arch$tab(TAB))
     );
 
     public static final RegistrySupplier<OxygenTankItem> OXYGEN_TANK = REGISTRY.register(

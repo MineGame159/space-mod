@@ -16,7 +16,7 @@ public abstract class BlockItemMixin {
     private BlockState spacemod$getPlacementStateWithoutOxygen(BlockItem instance, BlockPlaceContext context, Operation<BlockState> operation) {
         var original = operation.call(instance, context);
 
-        if (!Planets.hasOxygen(context.getLevel().dimension())) {
+        if (!Planets.hasOxygen(context.getLevel())) {
             original = SharedPlanetBehaviour.getPlacementStateWithoutOxygen(context, original);
         }
 

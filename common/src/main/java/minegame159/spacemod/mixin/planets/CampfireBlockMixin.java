@@ -14,7 +14,7 @@ public abstract class CampfireBlockMixin {
     private BlockState spacemod$blockFireWithoutOxygen(BlockPlaceContext context, Operation<BlockState> operation) {
         var original = operation.call(context);
 
-        if (!Planets.hasOxygen(context.getLevel().dimension())) {
+        if (!Planets.hasOxygen(context.getLevel())) {
             original = original.setValue(CampfireBlock.LIT, false);
         }
 

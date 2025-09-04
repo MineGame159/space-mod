@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class BaseFireBlockMixin {
     @Inject(method = "canBePlacedAt", at = @At("HEAD"), cancellable = true)
     private static void spacemod$blockFireWithoutOxygen(Level level, BlockPos pos, Direction direction, CallbackInfoReturnable<Boolean> info) {
-        if (!Planets.hasOxygen(level.dimension())) {
+        if (!Planets.hasOxygen(level)) {
             info.setReturnValue(false);
         }
     }

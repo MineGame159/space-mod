@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class FlintAndSteelItemMixin {
     @Inject(method = "useOn", at = @At("HEAD"), cancellable = true)
     private void spacemod$blockFireWithoutOxygen(UseOnContext context, CallbackInfoReturnable<InteractionResult> info) {
-        if (!Planets.hasOxygen(context.getLevel().dimension())) {
+        if (!Planets.hasOxygen(context.getLevel())) {
             info.setReturnValue(InteractionResult.FAIL);
         }
     }

@@ -31,7 +31,7 @@ public class UnlitTorchBlock extends BaseTorchBlock {
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (stack.getItem() instanceof FlintAndSteelItem && Planets.hasOxygen(level.dimension())) {
+        if (stack.getItem() instanceof FlintAndSteelItem && Planets.hasOxygen(level)) {
             if (state.hasProperty(UnlitWallTorchBlock.FACING)) {
                 state = Blocks.WALL_TORCH.defaultBlockState().setValue(WallTorchBlock.FACING, state.getValue(UnlitWallTorchBlock.FACING));
             } else {

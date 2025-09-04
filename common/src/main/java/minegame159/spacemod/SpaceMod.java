@@ -7,6 +7,7 @@ import minegame159.spacemod.blocks.ModBlocks;
 import minegame159.spacemod.items.ModDataComponents;
 import minegame159.spacemod.items.ModItems;
 import minegame159.spacemod.menus.ModMenuTypes;
+import minegame159.spacemod.planets.SharedPlanetBehaviour;
 import minegame159.spacemod.recipe.ModRecipeSerializers;
 import minegame159.spacemod.recipe.ModRecipeTypes;
 import minegame159.spacemod.worldgen.feature.ModFeatures;
@@ -37,6 +38,7 @@ public final class SpaceMod {
 
         ModMenuTypes.init();
 
+        SharedPlanetBehaviour.init();
         Space.init();
 
         InteractionEvent.RIGHT_CLICK_BLOCK.register(BucketHandler::onRightClickBlock);

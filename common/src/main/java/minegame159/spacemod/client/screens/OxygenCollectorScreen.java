@@ -28,7 +28,7 @@ public class OxygenCollectorScreen extends BaseScreen<OxygenCollectorMenu> {
         var x = leftPos;
         var y = topPos;
 
-        if (!Planets.hasOxygen(GameInstance.getClient().player.level().dimension())) {
+        if (!Planets.hasOxygen(GameInstance.getClient().player.level())) {
             var text = SpaceMod.translatable("text", "planet_without_oxygen").withStyle(ChatFormatting.RED);
             var textWidth = font.width(text);
 
