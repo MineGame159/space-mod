@@ -13,9 +13,10 @@
         "fluid.EntityMixin",
         "fluid.ExperienceOrbMixin",
         "fluid.ItemEntityMixin",
-        "fluid.LivingEntityMixin"
+        "fluid.LivingEntityMixin",
+        "space.BucketItemMixin"
     ],
     "injectors": {
         "defaultRequire": 1
-  }
+    }
 }
